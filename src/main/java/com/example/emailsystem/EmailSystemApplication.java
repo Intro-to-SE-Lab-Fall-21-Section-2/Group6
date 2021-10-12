@@ -1,4 +1,4 @@
-package com.example.demowebexample;
+package com.example.emailsystem;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -9,25 +9,27 @@ import org.springframework.context.annotation.Bean;
 import java.util.Arrays;
 
 @SpringBootApplication
-public class DemoWebExampleApplication
+public class EmailSystemApplication
 {
 
-    public static void main(String[] args) {
-        SpringApplication.run(DemoWebExampleApplication.class, args);
+    public static void main(String[] args)
+    {
+        SpringApplication.run(EmailSystemApplication.class, args);
     }
 
     @Bean
-    public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
+    public CommandLineRunner commandLineRunner(ApplicationContext ctx)
+    {
         return args -> {
 
-            System.out.println("Let's inspect the beans provided by Spring Boot:");
+            System.out.println("The beans provided by Spring Boot:");
 
             String[] beanNames = ctx.getBeanDefinitionNames();
             Arrays.sort(beanNames);
-            for (String beanName : beanNames) {
+            for (String beanName : beanNames)
+            {
                 System.out.println(beanName);
             }
-
         };
     }
 }
