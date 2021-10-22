@@ -33,6 +33,7 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
+        "test": "vows --spec",
         "eject": "react-scripts eject"
     },
     "eslintConfig": {
