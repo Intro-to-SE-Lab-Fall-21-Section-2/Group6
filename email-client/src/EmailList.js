@@ -12,46 +12,45 @@ import EmailRow from "./EmailRow";
 
 import {db} from './Firebase';
 
-
-function EmailList() {
-
+function EmailList()
+{
     const [emails, setEmails] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
         db.collection('emails')
             .orderBy('timestamp', 'desc')
             .onSnapshot((snapshot) =>
                 setEmails(
-                    snapshot.docs.map(doc =>({
-                   id: doc.id,
-                   data: doc.data(),
-            }))));
+                    snapshot.docs.map(doc => ({
+                        id: doc.id,
+                        data: doc.data(),
+                    }))));
     }, []);
 
     return (
         <div className="emailList">
             <div className="emailList__settings">
-                 <div className="emailList__settingsLeft">
-                      <Checkbox/>
-                      <IconButton>
-                          <ArrowDropDownIcon/>
-                      </IconButton>
+                <div className="emailList__settingsLeft">
+                    <Checkbox/>
+                    <IconButton>
+                        <ArrowDropDownIcon/>
+                    </IconButton>
 
-                      <IconButton>
-                          <RedoIcon/>
-                      </IconButton>
+                    <IconButton>
+                        <RedoIcon/>
+                    </IconButton>
 
-                      <IconButton>
-                          <MoreVertIcon/>
-                      </IconButton>
-                 </div>
+                    <IconButton>
+                        <MoreVertIcon/>
+                    </IconButton>
+                </div>
                 <div className="emailList_settingsRight">
                     <IconButton>
                         <ChevronLeftIcon/>
                     </IconButton>
 
                     <IconButton>
-                         <ChevronRightIcon/>
+                        <ChevronRightIcon/>
                     </IconButton>
 
                     <IconButton>
@@ -59,11 +58,10 @@ function EmailList() {
                     </IconButton>
 
                     <IconButton>
-                         <SettingsIcon/>
+                        <SettingsIcon/>
                     </IconButton>
                 </div>
             </div>
-            
 
             <div className="emailList__list">
                 {emails.map(({id, data: {to, subject, message, file, timestamp}}) =>
@@ -73,10 +71,10 @@ function EmailList() {
                             key={id}
                             title={to}
                             subject={subject}
-                            description ={message}
+                            description={message}
                             file={file}
                             time={new Date(timestamp?.seconds * 1000).toUTCString()}
-                    />
+                        />
                     ))}
 
             </div>

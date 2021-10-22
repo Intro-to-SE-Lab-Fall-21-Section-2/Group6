@@ -11,15 +11,11 @@ const firebaseConfig = {
     messagingSenderId: "290464012650",
     appId: "1:290464012650:web:bfd29186559fcb506d2d13",
     measurementId: "G-2GP1K2WLF2"
-  };
+};
 
-  
-  const firebaseApp = firebase.initializeApp(firebaseConfig)
-  const db = firebaseApp.firestore();
-  const auth = firebase.auth();
-  const provider = new firebase.auth.GoogleAuthProvider();
-
-
-  
+const firebaseApp = firebase.initializeApp(firebaseConfig)
+const db = firebaseApp.firestore();
+const auth = firebase.auth();
+const provider = new firebase.auth.GoogleAuthProvider();
 
 export {db, auth, provider};

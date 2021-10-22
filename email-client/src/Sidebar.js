@@ -9,33 +9,32 @@ import NoteIcon from "@material-ui/icons/Note";
 import {useDispatch} from "react-redux";
 import {openSendMessage} from "./features/mailSlice";
 
-function Sidebar() {
+function Sidebar()
+{
     const dispatch = useDispatch();
     return (
         <div className="sidebar">
-            <Button startIcon={ <AddIcon fontsize="large"  />} 
-            className="sidebar_compose"
-            onClick={() => dispatch(openSendMessage())}
-
+            <Button startIcon={<AddIcon fontsize="large"/>}
+                    className="sidebar_compose"
+                    onClick={() => dispatch(openSendMessage())}
             >
                 Compose
-                </Button>
-            <SidebarOption Icon={InboxIcon} title="Inbox"  
-            selected={true}
-             />
+            </Button>
+            <SidebarOption Icon={InboxIcon} title="Inbox"
+                           selected={true}
+            />
             {/* <SidebarOption Icon={StarIcon} title="Starred"  number={54} />
             <SidebarOption Icon={AccessTimeIcon} title="Snoozed" number={54}/> */}
             {/* <SidebarOption Icon={LabelImportantIcon} title="Important" number={54}/> */}
-             <SidebarOption Icon={NearMeIcon} title="Sent" number={54}/>
-             <SidebarOption Icon={NoteIcon} title="Drafts" number={54}/>
-             {/* <SidebarOption Icon={ExpandMoreIcon} title="More" number={54}/> */}
+            <SidebarOption Icon={NearMeIcon} title="Sent" number={54}/>
+            <SidebarOption Icon={NoteIcon} title="Drafts" number={54}/>
+            {/* <SidebarOption Icon={ExpandMoreIcon} title="More" number={54}/> */}
 
-             
 
-             <div className="sidebar__footer">
-                 <div className="sidebar__footerIcons">
+            <div className="sidebar__footer">
+                <div className="sidebar__footerIcons">
 
-                     {/* <IconButton>
+                    {/* <IconButton>
                        <PersonIcon/>
                      </IconButton>
 
@@ -46,11 +45,10 @@ function Sidebar() {
                       <IconButton>
                       <PhoneIcon/>
                       </IconButton>
- */}
+                    */}
 
-
-                 </div>
-             </div>
+                </div>
+            </div>
         </div>
     )
 }

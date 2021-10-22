@@ -10,123 +10,102 @@ import 'firebase/firestore';
 import firebase from 'firebase/app';
 import {db} from "./Firebase";
 
-function SendMail() {
+function SendMail()
+{
     const dispatch = useDispatch();
     const [toSend, setToSend] = useState({
         from_name: '',
         to_name: '',
         message: '',
         reply_to: '',
-      });
-     
-      
-      const handleChange = (e) => {
-        setToSend({ ...toSend, [e.target.name]: e.target.value });
-      };
+    });
 
-      const onSubmit = (e) => {
+    const handleChange = (e) => {
+        setToSend({...toSend, [e.target.name]: e.target.value});
+    };
+
+    const onSubmit = (e) => {
         e.preventDefault();
         send(
-          'service_yzyfjrs',
-          'template_9qxjr8s',
-          toSend,
-          'user_vMO4bVzfjqWIAW17AjzxG'
+            'service_yzyfjrs',
+            'template_9qxjr8s',
+            toSend,
+            'user_vMO4bVzfjqWIAW17AjzxG'
         )
-          .then((response) => {
-            console.log('SUCCESS!', response.status, response.text);
-          })
-          .catch((err) => {
-            console.log('FAILED...', err);
+            .then((response) => {
+                console.log('SUCCESS!', response.status, response.text);
+            })
+            .catch((err) => {
+                console.log('FAILED...', err);
 
-            const onSubmit = (formData) => {
-                console.log(formData);
-                 db.collection('emails').add({
-                     to: formData.to,
-                     subject: formData.subject,
-                     message: formData.message,
-                     file:formData.file,
-                     timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-           
-                 });
-                 dispatch(closeSendMessage());
-            };
+                const onSubmit = (formData) => {
+                    console.log(formData);
+                    db.collection('emails').add({
+                        to: formData.to,
+                        subject: formData.subject,
+                        message: formData.message,
+                        file: formData.file,
+                        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
 
-
-
-          });
-          dispatch(closeSendMessage());
-      };
-   
-    
-  
-
-
+                    });
+                    dispatch(closeSendMessage());
+                };
+            });
+        dispatch(closeSendMessage());
+    };
 
     return (
         <div className="sendMail">
-               <div className="sendMail__header">
-                    <h3>New Message </h3>
-                    <CloseIcon onClick={()=> dispatch(closeSendMessage())}
-                    className="sendMail__close"/>
-              </div> 
+            <div className="sendMail__header">
+                <h3>New Message </h3>
+                <CloseIcon onClick={() => dispatch(closeSendMessage())}
+                           className="sendMail__close"/>
+            </div>
 
-              <form onSubmit={onSubmit}>
+            <form onSubmit={onSubmit}>
 
-            
-
-               <input
-          
-          type='text'
-          name='to_name'
-          placeholder='to name'
-          value={toSend.to_name}
-          onChange={handleChange}
-
-          
+                <input
+                    type='text'
+                    name='to_name'
+                    placeholder='to name'
+                    value={toSend.to_name}
+                    onChange={handleChange}
                 />
 
-                 <input
-                  
-            
+                <input
                     className="sendMail__message"
                     type="text"
                     name='message'
                     placeholder='Your message'
                     value={toSend.message}
                     onChange={handleChange}
-          
                 />
-              
-              <input
-          type='text'
-          name='reply_to'
-          placeholder='Your email'
-          value={toSend.reply_to}
-          onChange={handleChange}
-        />
 
-              <div className="sendMail__options">
-                        <Button className="sendMail__send"
-                                variant="contained"
-                                color="primary"
-                                type="submit"
+                <input
+                    type='text'
+                    name='reply_to'
+                    placeholder='Your email'
+                    value={toSend.reply_to}
+                    onChange={handleChange}
+                />
 
-                        >Send</Button>
+                <div className="sendMail__options">
+                    <Button className="sendMail__send"
+                            variant="contained"
+                            color="primary"
+                            type="submit"
 
-        
-         <input type="file" onClick={handleChange}
-         
-         
-         
-         /> 
-        
-                        {/* <IconButton type="file"  onChange={handleSubmit}  >
+                    >Send</Button>
+
+                    <input type="file" onClick={handleChange}/>
+
+                    {/* <IconButton type="file"  onChange={handleSubmit}  >
                   < AttachFileIcon  />
               </IconButton>  */}
-                   </div>
-          </form>
-      </div>
-               
+                </div>
+            </form>
+        </div>
+
     )
 }
 

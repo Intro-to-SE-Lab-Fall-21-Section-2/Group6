@@ -3,13 +3,13 @@
     overflow: scroll;
 }
 
-.emailList::-webkit-scrollbar{
+.emailList::-webkit-scrollbar {
     display: none;
 }
 
 .emailList {
     -ms-overflow-style: none;
-    scrollbar-width:none;
+    scrollbar-width: none;
 }
 
 .emailList__settings {
@@ -23,7 +23,7 @@
     padding-right: 10px;
 }
 
-.emailList__sections{
+.emailList__sections {
     position: sticky;
     top: 0;
     display: flex;

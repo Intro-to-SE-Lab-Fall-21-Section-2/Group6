@@ -10,38 +10,36 @@ import {useDispatch, useSelector} from "react-redux";
 import {selectUser} from "./features/userSlice";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
-
-const  Header=({handleLogout}) => {
+const Header = ({handleLogout}) => {
     const user = useSelector(selectUser);
     const dispatch = useDispatch();
- 
-    
+
     return (
         <div className="header">
-          <div className="header_left">
-              <IconButton>
-              <MenuIcon />
-              </IconButton>
-              <img src="https://www.freepnglogos.com/uploads/email-logo-png-22.png"  alt="" />
-          </div>
-          <div className="header_middle "  >
-           <SearchIcon />
-           <input placeholder="search mail" type="text" id="latestHotDogStatus"/>
-           <ArrowDropDownIcon className="header_inputCaret" />
-              </div>  
-           <div className="header_right ">
-              <IconButton>
-                  <AppsIcon />
-              </IconButton>
+            <div className="header_left">
+                <IconButton>
+                    <MenuIcon/>
+                </IconButton>
+                <img src="https://www.freepnglogos.com/uploads/email-logo-png-22.png" alt=""/>
+            </div>
+            <div className="header_middle ">
+                <SearchIcon/>
+                <input placeholder="search mail" type="text" id="latestHotDogStatus"/>
+                <ArrowDropDownIcon className="header_inputCaret"/>
+            </div>
+            <div className="header_right ">
+                <IconButton>
+                    <AppsIcon/>
+                </IconButton>
 
-              <IconButton >
-                  <NotificationsIcon/>
-              </IconButton>
-              <Avatar src={user?.photoURL}/>
-              <IconButton >    
-                  <ExitToAppIcon onClick={handleLogout} />
-              </IconButton>
-          </div>
+                <IconButton>
+                    <NotificationsIcon/>
+                </IconButton>
+                <Avatar src={user?.photoURL}/>
+                <IconButton>
+                    <ExitToAppIcon onClick={handleLogout}/>
+                </IconButton>
+            </div>
 
         </div>
     );

@@ -14,12 +14,12 @@
 .sidebarOption:hover > h3,
 .sidebarOption--active,
 .sidebarOption--active > p,
-.sidebarOption--active > h3
-{
+.sidebarOption--active > h3 {
     background-color: #fcecec;
     color: rgba(0, 0, 0, 0.596);
     font-weight: 800 !important;
 }
+
 .sidebarOption > .MuiSvgIcon {
     padding: 5px;
 }

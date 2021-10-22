@@ -20,56 +20,51 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import {selectOpenMail} from "./features/mailSlice";
 
 
-function Mail() {
-
+function Mail()
+{
     const history = useHistory();
     const selectedMail = useSelector(selectOpenMail);
 
-
-
-    return(
+    return (
         <div className="mail">
             <div className="mail__tools">
-               <div className="mail__toolsLeft">
-                 <IconButton onClick={()=> history.push("/")}>
-                     <ArrowBackIcon/>
-                 </IconButton>
-
-                   <IconButton>
-                       <MoveToInboxIcon/>
-                   </IconButton>
+                <div className="mail__toolsLeft">
+                    <IconButton onClick={() => history.push("/")}>
+                        <ArrowBackIcon/>
+                    </IconButton>
 
                     <IconButton>
-                       <ErrorIcon/>
-                   </IconButton>
+                        <MoveToInboxIcon/>
+                    </IconButton>
 
                     <IconButton>
-                       <DeleteIcon  />
-                   </IconButton>
+                        <ErrorIcon/>
+                    </IconButton>
 
                     <IconButton>
-                      <EmailIcon/>
-                   </IconButton>
+                        <DeleteIcon/>
+                    </IconButton>
 
-                   <IconButton>
-                       <WatchlaterIcon/>
-                   </IconButton>
+                    <IconButton>
+                        <EmailIcon/>
+                    </IconButton>
 
-                   <IconButton>
-                       <CheckCircleIcon/>
-                   </IconButton>
+                    <IconButton>
+                        <WatchlaterIcon/>
+                    </IconButton>
 
-                   <IconButton>
-                       <LabelImportantIcon/>
-                   </IconButton>
+                    <IconButton>
+                        <CheckCircleIcon/>
+                    </IconButton>
 
-                   <IconButton>
-                       <MoreVertIcon/>
-                   </IconButton>
+                    <IconButton>
+                        <LabelImportantIcon/>
+                    </IconButton>
 
-               </div>
-
-
+                    <IconButton>
+                        <MoreVertIcon/>
+                    </IconButton>
+                </div>
 
                 <div className="mail__toolsRight">
                     <IconButton>
@@ -83,26 +78,20 @@ function Mail() {
                     <IconButton>
                         <ExitToAppIcon/>
                     </IconButton>
-
                 </div>
-
-
             </div>
-
 
             <div className="mail__body">
                 <div className="mail__bodyHeader">
-                      <h2>{selectedMail?.subject}</h2>
+                    <h2>{selectedMail?.subject}</h2>
                     <LabelImportantIcon className="mail__important"/>
                     <p>{selectedMail?.title}</p>
                     <p> {selectedMail?.time}</p>
                 </div>
                 <div className="mail__message">
-                   <p>{selectedMail?.description}</p>
+                    <p>{selectedMail?.description}</p>
                 </div>
-
             </div>
-
         </div>
     )
 }

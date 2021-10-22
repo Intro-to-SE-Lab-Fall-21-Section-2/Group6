@@ -10,11 +10,10 @@ import {db} from "./Firebase";
 import {selectMail} from "./features/mailSlice";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-function EmailRow({ id, title, subject, description, time}) {
-
+function EmailRow({id, title, subject, description, time})
+{
     const history = useHistory();
     const dispatch = useDispatch();
-
 
     const openMail = (sel) => {
         dispatch(selectMail({
@@ -29,19 +28,22 @@ function EmailRow({ id, title, subject, description, time}) {
     };
     var [currentId, setCurrentId] = useState('')
     const onDelete = () => {
-        if (window.confirm('Are you sure to delete this record?')) {
+        if (window.confirm('Are you sure to delete this record?'))
+        {
             debugger
             db('emails').remove(
                 err => {
                     if (err)
+                    {
                         console.log(err)
-                    else
+                    } else
+                    {
                         setCurrentId('')
+                    }
                 }
             )
         }
     }
-
 
     return (
         <div onClick={openMail} className="emailRow">
@@ -49,7 +51,7 @@ function EmailRow({ id, title, subject, description, time}) {
 
                 <Checkbox/>
                 <IconButton>
-                   <StarBorderOutlinedIcon/>
+                    <StarBorderOutlinedIcon/>
                 </IconButton>
 
                 <IconButton>
@@ -72,13 +74,12 @@ function EmailRow({ id, title, subject, description, time}) {
 
             </div>
 
-
             <p className="emailRow__time">
                 {time}
             </p>
             <IconButton>
-                       <DeleteIcon  />
-                   </IconButton>
+                <DeleteIcon/>
+            </IconButton>
 
         </div>
     )

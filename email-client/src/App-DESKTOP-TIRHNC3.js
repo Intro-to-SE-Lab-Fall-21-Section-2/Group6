@@ -12,7 +12,8 @@ import {login, selectUser} from "./features/userSlice";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {auth} from "./Firebase";
 
-function App() {
+function App()
+{
 
     const sendMessageIsOpen = useSelector(selectSendMessageIsOpen)
     const user = useSelector(selectUser);
@@ -20,47 +21,48 @@ function App() {
 
     useEffect(() => {
         auth.onAuthStateChanged(user => {
-            if(user){
-               dispatch(login({
-                   displayName: user.displayName,
-                   email: user.email,
-                   photoURL: user.photoURL
-               }))
+            if (user)
+            {
+                dispatch(login({
+                    displayName: user.displayName,
+                    email: user.email,
+                    photoURL: user.photoURL
+                }))
             }
 
         })
 
     }, [])
 
-  return (
-      <Router>
-          {!user ? (
-              <Login/>
-          ): (
-              <div className="App">
-                   <Header/>
-              <div className="app_body">
+    return (
+        <Router>
+            {!user ? (
+                <Login/>
+            ) : (
+                <div className="App">
+                    <Header/>
+                    <div className="app_body">
 
-                    <Sidebar/>
-                  <Switch>
-                      <Route path="/mail">
-                          <Mail/>
-                      </Route>
+                        <Sidebar/>
+                        <Switch>
+                            <Route path="/mail">
+                                <Mail/>
+                            </Route>
 
-                      <Route path="/">
-                          <EmailList/>
-                      </Route>
+                            <Route path="/">
+                                <EmailList/>
+                            </Route>
 
-                  </Switch>
-              </div>
-              {sendMessageIsOpen && <SendMail/> }
-          </div>
+                        </Switch>
+                    </div>
+                    {sendMessageIsOpen && <SendMail/>}
+                </div>
 
-          )}
+            )}
 
-      </Router>
+        </Router>
 
-  );
+    );
 }
 
 export default App;

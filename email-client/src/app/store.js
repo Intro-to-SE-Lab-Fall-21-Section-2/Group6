@@ -3,8 +3,8 @@ import mailReducer from '../features/mailSlice';
 import userReducer from '../features/userSlice';
 
 export default configureStore({
-  reducer: {
-    mail: mailReducer,
-    user: userReducer,
-  },
+    reducer: {
+        mail: mailReducer,
+        user: userReducer,
+    },
 });
