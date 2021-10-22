@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Checkbox from "@material-ui/core/Checkbox";
 import {IconButton} from "@material-ui/core";
 import StarBorderOutlinedIcon from "@material-ui/icons/StarBorderOutlined"
@@ -8,8 +8,8 @@ import {useHistory} from 'react-router-dom';
 import {useDispatch} from "react-redux";
 import {db} from "./Firebase";
 import {selectMail} from "./features/mailSlice";
-import  {useState} from 'react';
 import DeleteIcon from "@material-ui/icons/Delete";
+
 function EmailRow({ id, title, subject, description, time}) {
 
     const history = useHistory();

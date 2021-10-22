@@ -8,10 +8,9 @@ import SendMail from "./SendMail";
 import Login from "./Login";
 import {useSelector} from "react-redux";
 import {selectSendMessageIsOpen} from "./features/mailSlice";
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import firebase from 'firebase/app'
 import "firebase/auth"
-import {useDispatch} from "react-redux"
 
 function App() {
 const sendMessageIsOpen = useSelector(selectSendMessageIsOpen)
@@ -34,7 +33,7 @@ const clearErrors = () =>{
 
 const handleLogin = () => {
     clearErrors ();
-    firebase   
+    firebase
     .auth()
     .signInWithEmailAndPassword(email,password)
     .catch((err) => {
@@ -53,7 +52,7 @@ const handleLogin = () => {
 
 const handleSignup =() =>{
     clearErrors() ;
-    firebase   
+    firebase
     .auth()
     .createUserWithEmailAndPassword(email,password)
     .catch((err) => {
@@ -66,7 +65,7 @@ const handleSignup =() =>{
             setEmailError(err.message);
             break;
         }
-    }); 
+    });
 };
 
 const handleLogout =() =>{
@@ -97,21 +96,21 @@ useEffect(() => {
 
                )  :  (
                 <Login
-               email={email} 
-               setEmail={setEmail} 
+               email={email}
+               setEmail={setEmail}
                password={password}
-              setPassword={setPassword} 
+              setPassword={setPassword}
               handleLogin={handleLogin}
               handleSignup={handleSignup}
               hasAccount={hasAccount}
               setHasAccount={setHasAccount}
               emailError={emailError}
               passwordError={passwordError}
-              
-              />   
+
+              />
                )}
          <div className="App">
-               
+
                <div className="app_body">
                <Sidebar/>
                   <Switch>

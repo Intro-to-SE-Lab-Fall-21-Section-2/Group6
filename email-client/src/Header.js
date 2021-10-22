@@ -8,8 +8,6 @@ import AppsIcon from "@material-ui/icons/Apps";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import {useDispatch, useSelector} from "react-redux";
 import {selectUser} from "./features/userSlice";
-import {logout} from "./features/userSlice";
-import {auth} from "./Firebase";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 

@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import {configureStore} from '@reduxjs/toolkit';
 import mailReducer from '../features/mailSlice';
 import userReducer from '../features/userSlice';
 

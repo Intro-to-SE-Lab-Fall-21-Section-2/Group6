@@ -1,6 +1,5 @@
-
-import React, {useState, useEffect} from "react";
-import { Checkbox, IconButton} from "@material-ui/core";
+import React, {useEffect, useState} from "react";
+import {Checkbox, IconButton} from "@material-ui/core";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import RedoIcon from "@material-ui/icons/Redo";
 import MoreVertIcon from "@material-ui/icons/MoreVert";

@@ -1,7 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './SendMail.css';
-import { useState } from 'react';
-import { send } from 'emailjs-com';
+import {send} from 'emailjs-com';
 import CloseIcon from "@material-ui/icons/Close"
 import {useDispatch} from "react-redux";
 import {closeSendMessage} from "./features/mailSlice";
@@ -10,6 +9,7 @@ import 'firebase/auth';
 import 'firebase/firestore';
 import firebase from 'firebase/app';
 import {db} from "./Firebase";
+
 function SendMail() {
     const dispatch = useDispatch();
     const [toSend, setToSend] = useState({

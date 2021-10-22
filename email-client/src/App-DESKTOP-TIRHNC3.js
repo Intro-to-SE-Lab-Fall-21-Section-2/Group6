@@ -6,15 +6,11 @@ import Mail from './Mail';
 import EmailList from "./EmailList";
 import SendMail from "./SendMail";
 import Login from "./Login";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {selectSendMessageIsOpen} from "./features/mailSlice";
-import {selectUser} from "./features/userSlice";
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {login, selectUser} from "./features/userSlice";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {auth} from "./Firebase";
-
-import {useDispatch} from "react-redux";
-
-import {login} from "./features/userSlice";
 
 function App() {
 
