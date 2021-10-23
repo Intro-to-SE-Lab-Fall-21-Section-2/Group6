@@ -7,8 +7,6 @@ import {useDispatch} from "react-redux";
 
 function New()
 {
-
-
     const dispatch = useDispatch();
     const signIn = () => {
         auth
