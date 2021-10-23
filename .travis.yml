@@ -4,7 +4,9 @@ node_js:
 cache: npm
 
 install:
-  - npm ci
+#  - npm ci
+  - npm install
+  - npm install --save-dev jest
 
 script:
   - npm test
