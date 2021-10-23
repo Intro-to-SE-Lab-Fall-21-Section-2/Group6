@@ -32,7 +32,6 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "test": "react-scripts test",
         "test": "vows --spec",
         "test:watch": "jest --watch",
         "test:coverage": "jest --coverage",
