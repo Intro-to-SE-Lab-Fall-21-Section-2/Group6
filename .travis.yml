@@ -1,18 +1,19 @@
 language: node_js
 node_js:
-  - 14.18.1
+  - node
 cache: npm
 
 install:
-  -npm
+  - npm ci
 
 script:
-  -npm test
-  -npm run build
+  - npm test
+  - npm run build
 
 deploy:
   provider: pages
   skip_cleanup: true
   github-token: $GITHUB_TOKEN
+  local_dir: build
   on:
-    branch: gh-pages
+    branch: TravisCI

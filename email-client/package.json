@@ -34,6 +34,9 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "test": "vows --spec",
+        "test:watch": "jest --watch",
+        "test:coverage": "jest --coverage",
+        "test:staged": "jest --findRelatedTests",
         "eject": "react-scripts eject"
     },
     "eslintConfig": {
